@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Organization</title>
+  <style>
+    /* Reset styles to ensure consistency across email clients */
+    body, body * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    /* Set a background color for the email */
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Container to center the email content */
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header styles */
+    header {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #3498db;
+      color: #fff;
+      border-radius: 10px 10px 0 0;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    /* Main content styles */
+    .content {
+      margin-top: 20px;
+      color: #555555;
+      line-height: 1.6;
+    }
+
+    /* Footer styles */
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      color: #777777;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 0 0 10px 10px;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    footer img {
+      max-width: 50%;
+      height: auto;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Fittonia Technologies Pvt. Ltd.</h1>
+    </header>
+
+    <div class="content">
+      <p>Dear <%= @candidate.first_name %> <%= @candidate.last_name %>,</p>
+      <br>
+
+      <p>Congratulations! 🥳 You have successfully cleared the written exam for the ROR back-end role at Fittonia Technologies.</p>
+      <p>We are pleased to invite you to the next stage of the hiring process, which may include interviews or assessments.</p>
+      <p>Details about the next steps will be communicated to you shortly.</p>
+      <p>Thank you for your dedication and effort!</p>
+
+      <br>
+      <p>Best regards,<br>Fittonia Technologies HR Team</p>
+    </div>
+
+    <footer>
+      <p>Contact HR Department:</p>
+      <p>Email: hr@ftpls.com</p>
+      <p>Phone: +91 97556 90367</p>
+      <p>Visit our website: <a href="https://ftpls.com" target="_blank">www.ftpls.com</a></p>
+      <img src="https://admin.ftpls.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBOdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--fe31acdb7e3b4339ea47b07fa84d24af57f8d6d0/logo2x-d1fd207ffc97e14b77791471e2eefa7d3a2e168920bdb982fd26262b5cec6510.png" alt="HR Department Image">
+    </footer>
+  </div>
+</body>
+</html>
+

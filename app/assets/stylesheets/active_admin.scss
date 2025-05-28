@@ -1,0 +1,193 @@
+// Sass variable overrides must be declared before loading up Active Admin's styles.
+//
+// To view the variables that Active Admin provides, take a look at
+// `app/assets/stylesheets/active_admin/mixins/_variables.scss` in the
+// Active Admin source.
+//
+// For example, to change the sidebar width:
+// $sidebar-width: 242px;
+
+// Active Admin's got SASS!
+@import "active_admin/mixins";
+@import "arctic_admin/base";
+@import "active_admin/searchable_select";
+// Overriding any non-variable Sass must be done after the fact.
+// For example, to change the default status-tag color:
+//
+//   .status_tag { background: #6090DB; }
+
+/* General Panel Styling */
+.panel-signups, .panel-free-trial, .panel-active-plans, .panel-expired-plans, 
+.panel-did-not-proceed, .panel-total-transactions, .panel-transactions-last, 
+.panel-monthly-revenue {
+  background-color: #ffffff; /* White background for cleaner look */
+  border: 1px solid #ddd; /* Keep border */
+  margin-bottom: 20px; /* Spacing between panels */
+  border-radius: 8px; /* More rounded corners */
+  padding: 20px; /* Increased padding */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add slight shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effects for Panels */
+.panel-signups:hover, .panel-free-trial:hover, .panel-active-plans:hover, 
+.panel-expired-plans:hover, .panel-did-not-proceed:hover, 
+.panel-total-transactions:hover, .panel-transactions-last:hover, 
+.panel-monthly-revenue:hover {
+  transform: translateY(-3px); /* Lift up slightly on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+/* Metric Heading Styles */
+.metric-with-button {
+	display: flex;
+  justify-content: space-between;
+}
+.metric h3 {
+  font-size: 28px; /* Larger font for key metrics */
+  font-weight: bold; /* Bold text */
+  color: #2a9d8f; /* Highlight with teal color */
+  margin-bottom: 10px; /* Space under the heading */
+}
+
+.metric h4 {
+  font-size: 22px; /* Adjusted size for sub-headings */
+  color: #666; /* Grey text */
+  margin-bottom: 5px; /* Space under sub-heading */
+}
+
+/* Highlight Important Metrics */
+.panel-signups .metric h3, .panel-total-transactions .metric h3,
+.panel-monthly-revenue .metric h4 {
+  color: #e76f51; /* Strong orange color for attention */
+}
+
+/* Button Styling */
+button {
+  background-color: #2a9d8f; /* Teal background */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Padding inside button */
+  font-size: 16px; /* Larger text */
+  border-radius: 5px; /* Rounded button */
+  cursor: pointer; /* Show pointer on hover */
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #21867a; /* Darken teal on hover */
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  padding: 12px; /* Padding for readability */
+  text-align: left; /* Align text left */
+  border-bottom: 1px solid #ddd; /* Border between rows */
+}
+
+.table th {
+  background-color: #2a9d8f; /* Teal background for headers */
+  color: white; /* White text */
+}
+
+.table tr:hover {
+  background-color: #f1f1f1; /* Light grey on hover */
+}
+
+/* Highlight Important Values */
+.table td:nth-child(2) {
+  font-weight: bold;
+  color: #e76f51; /* Use orange to highlight values */
+}
+
+.flex-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .panel-signups, .panel-free-trial, .panel-active-plans, 
+  .panel-expired-plans, .panel-did-not-proceed, 
+  .panel-total-transactions, .panel-transactions-last, 
+  .panel-monthly-revenue {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .metric h3 {
+    font-size: 22px;
+  }
+  
+  .metric h4 {
+    font-size: 18px;
+  }
+  
+  button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
+
+
+/* chart upload css */
+
+
+.page-description {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.chart-rates-upload-form {
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="file"],
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.submit-button-wrapper {
+  text-align: center;
+}
+
+.submit-button-wrapper button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1.2em;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submit-button-wrapper button:hover {
+  background-color: #45a049;
+}

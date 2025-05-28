@@ -1,0 +1,101 @@
+# Files in the config/locales directory are used for internationalization and
+# are automatically loaded by Rails. If you want to use locales other than
+# English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more about the API, please read the Rails Internationalization guide
+# at https://guides.rubyonrails.org/i18n.html.
+#
+# Be aware that YAML interprets the following case-insensitive strings as
+# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
+# must be quoted to be interpreted as strings. For example:
+#
+#     en:
+#       "yes": yup
+#       enabled: "ON"
+
+en:
+  Milk Purchase Confirmed: "Milk Purchase Confirmed"
+  Mon: "Mon"
+  Tue: "Tue"
+  Wed: "Wed"
+  Thu: "Thu"
+  Fri: "Fri"
+  Sat: "Sat"
+  Sun: "Sun"
+  Jan: "Jan"
+  Feb: "Feb"
+  Mar: "Mar"
+  Apr: "Apr"
+  May: "May"
+  Jun: "Jun"
+  Jul: "Jul"
+  Aug: "Aug"
+  Sep: "Sep"
+  Oct: "Oct"
+  Nov: "Nov"
+  Dec: "Dec"
+  morning: "Morning"
+  evening: "Evening"
+  Date: "Date"
+  to: "to"
+  Morning Shift: "Morning Shift"
+  Evening Shift: "
+Evening Shift"
+  Shift: "Shift"
+  KG/Fat: "KG/Fat"
+  Qty: "Qty"
+  Product: "Product"
+  Cash: "Cash"
+  Customer: "Customer"
+  Deposit: "Deposit"
+  Previous: "Previous"
+  Final: "Final"
+  Summary: "Summary"
+  Total/Average: "Total/Average"
+  Average Fat: "Average Fat"
+  Average CLR: "Average CLR"
+  Average SNF: "Average SNF"
+  Total Quantity: "Total Quantity"
+  Total Amount: "Total Amount"
+  Type: "Type"
+  Deposit History: "Deposit History"
+  Total Cash: "Total Cash"
+  Total Product Cash: "Total Product Cash"
+  To give to the party: "To give to the party"
+  Take from the party: "Take from the party"
+  Total Buy Milk Amount (+): "Total Buy Milk Amount (+)"
+  Cash Amount (-): "Cash Amount (-)"
+  Prodct Amount (-): "Prodct Amount (-)"
+  Previous Balance (+): "Previous Balance (+)"
+  Total Amount (=): "Total Amount (=)"
+  SUPPLIER'S SIGNATURE: "SUPPLIER'S SIGNATURE"
+  APPROVED BY: "APPROVED BY"
+  Quantity: "Quantity"
+  Fat: "Fat"
+  CLR: "CLR"
+  SNF: "SNF"
+  Kg/Fat: "Kg/Fat"
+  Amount: "Amount"
+  Rate: "Rate"
+  chart_rate_not_found: "Chart Rate with Fat %{fat} and CLR %{clr} not found in chart."
+  chart_rate_not_found_snf: "Chart Rate with Fat %{fat} and SNF %{clr} not found in chart."
+  Product Name: "Product Name"
+  Quantity Sold: "Quantity Sold"
+  Product History: "Product History"
+  Total Product Quantity: "Total Product Quantity"
+  Total Product Amount: "Total Product Amount"
+  Total Cash Amount: "Total Cash Amount"

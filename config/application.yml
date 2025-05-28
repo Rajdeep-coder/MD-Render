@@ -1,0 +1,11 @@
+pusher_app_id: "2954"
+pusher_key: "7381a978f7dd7f9a1117"
+pusher_secret: "abdc3b896a0ffb85d373"
+
+TEST_POSTGRES_USERNAME: "postgres"
+TEST_POSTGRES_PASSWORD: "postgres"
+TEST_DATABASE_NAME: "milk_dairy_test"
+
+DEVELOPMENT_POSTGRES_USERNAME: "postgres"
+DEVELOPMENT_POSTGRES_PASSWORD: "postgres"
+DEVELOPMENT_DATABASE_NAME: "milk_dairy_development"

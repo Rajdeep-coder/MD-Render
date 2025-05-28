@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Reset OTP</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #a4c4d1, #4fa8de);
+      color: #fff;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .otp-code {
+      font-size: 36px;
+      font-weight: bold;
+      color: #4fa8de;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .footer {
+      margin-top: 20px;
+      color: #231f20;
+      text-align: center;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4fa8de;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #28728f;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="hero-content">
+      <h1>Your Dairy, Our Solution!</h1>
+      <p>Experience the convenience of managing your dairy operations with MILK DAIRY.</p>
+      <p>Use the following OTP to proceed:</p>
+      <p class="otp-code"><%= @user.otp%></p>
+    </div>
+
+    <div class="footer">
+      <p>If you did not initiate this request, please ignore this email. The OTP is valid for a limited time.</p>
+      <p>Thank you for choosing Milk Dairy!</p>
+      <p>If you have any questions, feel free to contact our support team.</p>
+      <a href="mailto:contact@ftpls.com" class="cta-button">Contact Support</a>
+    </div>
+  </div>
+</body>
+
+</html>

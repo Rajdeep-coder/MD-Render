@@ -1,0 +1,2 @@
+module Fittonia::ContactHelper
+end
