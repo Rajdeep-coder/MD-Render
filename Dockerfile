@@ -24,9 +24,7 @@ RUN apt-get update -qq && \
 
 # Install Gems
 COPY Gemfile Gemfile.lock ./
-RUN gem sources --clear-all && \
-    gem sources -a https://rubygems.org && \
-    bundle install --verbose
+RUN bundle install --verbose
 
 # Copy app code
 COPY . .
