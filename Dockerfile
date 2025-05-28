@@ -30,6 +30,13 @@ RUN bundle install --verbose
 # Copy app code
 COPY . .
 
+ARG RAILS_MASTER_KEY
+ENV RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
+
+ARG SECRET_KEY_BASE
+ENV SECRET_KEY_BASE=${SECRET_KEY_BASE}
+
+
 # Precompile assets
 RUN bundle exec rake assets:precompile && \
     bundle exec bootsnap precompile --gemfile app/ lib/
