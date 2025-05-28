@@ -1,17 +1,16 @@
 # syntax=docker/dockerfile:1
 
 ARG RUBY_VERSION=3.0.0
-FROM ruby:$RUBY_VERSION-slim AS base
+FROM ruby:$RUBY_VERSION-bullseye
 
 WORKDIR /app
 
-# Set environment for production
 ENV RAILS_ENV=production \
     BUNDLE_DEPLOYMENT=true \
     BUNDLE_PATH=/bundle \
     BUNDLE_WITHOUT="development test"
 
-# Install essential build tools and libraries
+# Install OS dependencies
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y \
     build-essential \
@@ -24,22 +23,23 @@ RUN apt-get update -qq && \
     postgresql-client && \
     rm -rf /var/lib/apt/lists/*
 
-# Install Gems
+# Install Ruby Gems
 COPY Gemfile Gemfile.lock ./
-RUN bundle install --jobs 4 --retry 3
+RUN gem sources --clear-all && \
+    gem sources -a https://rubygems.org && \
+    bundle install --verbose
 
-# Copy the application code
+# Copy application
 COPY . .
 
-# Precompile assets and bootsnap
+# Precompile assets
 RUN bundle exec rake assets:precompile && \
     bundle exec bootsnap precompile --gemfile app/ lib/
 
-# Add non-root user for security
+# Use non-root user
 RUN adduser --disabled-password --gecos "" appuser && \
     chown -R appuser:appuser /app
 USER appuser
 
 EXPOSE 3000
-
 CMD ["bash", "-c", "bundle exec rails db:migrate && bundle exec rails s -b 0.0.0.0"]
