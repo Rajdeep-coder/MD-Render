@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
 
-FROM ruby:3.0.0-slim-buster
+ARG RUBY_VERSION=3.1.3
+FROM ruby:$RUBY_VERSION-slim
 
 WORKDIR /app
 
