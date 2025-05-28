@@ -1,7 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG RUBY_VERSION=3.0.0
-FROM ruby:$RUBY_VERSION-bullseye
+FROM ruby:3.0.0-slim-buster
 
 WORKDIR /app
 
@@ -23,13 +22,13 @@ RUN apt-get update -qq && \
     postgresql-client && \
     rm -rf /var/lib/apt/lists/*
 
-# Install Ruby Gems
+# Install Gems
 COPY Gemfile Gemfile.lock ./
 RUN gem sources --clear-all && \
     gem sources -a https://rubygems.org && \
     bundle install --verbose
 
-# Copy application
+# Copy app code
 COPY . .
 
 # Precompile assets
