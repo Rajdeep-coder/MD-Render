@@ -26,22 +26,20 @@ RUN apt-get update -qq && \
 
 # Install Gems
 COPY Gemfile Gemfile.lock ./
-RUN gem update --system && \
-    bundle install --jobs 4 --retry 3
+RUN bundle install --jobs 4 --retry 3
 
-# Copy rest of the app
+# Copy the application code
 COPY . .
 
-# Precompile assets & bootsnap cache
+# Precompile assets and bootsnap
 RUN bundle exec rake assets:precompile && \
     bundle exec bootsnap precompile --gemfile app/ lib/
 
-# Use a non-root user for security
+# Add non-root user for security
 RUN adduser --disabled-password --gecos "" appuser && \
     chown -R appuser:appuser /app
 USER appuser
 
 EXPOSE 3000
 
-# Run database migrations and then start the server
 CMD ["bash", "-c", "bundle exec rails db:migrate && bundle exec rails s -b 0.0.0.0"]
