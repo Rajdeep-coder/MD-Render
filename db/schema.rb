@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_01_041231) do
+ActiveRecord::Schema[7.1].define(version: 2025_02_20_053635) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,6 +83,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_041231) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "app_versions", force: :cascade do |t|
+    t.string "name"
+    t.string "platform"
+    t.string "version"
+    t.boolean "required", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "buy_milks", force: :cascade do |t|
@@ -162,6 +171,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_041231) do
     t.float "quntity"
     t.bigint "product_id"
     t.integer "deposit_type"
+    t.date "date"
+    t.text "note"
   end
 
   create_table "device_tokens", force: :cascade do |t|
@@ -180,6 +191,36 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_041231) do
     t.bigint "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "fittonia_careers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.bigint "phone_number"
+    t.string "address"
+    t.string "gender"
+    t.string "education"
+    t.string "skill", default: [], array: true
+    t.string "experiance"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fittonia_contacts", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.string "phone_number", null: false
+    t.string "budget"
+    t.text "message"
+    t.boolean "enquiry_agreement", default: false
+    t.boolean "products_agreement", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_fittonia_contacts_on_email"
+    t.index ["phone_number"], name: "index_fittonia_contacts_on_phone_number"
   end
 
   create_table "grades", force: :cascade do |t|
@@ -203,6 +244,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_041231) do
     t.bigint "plan_id"
     t.boolean "I_agree_terms_and_conditions_and_privacy_policies"
     t.integer "last_assigned_sid", default: 0
+    t.jsonb "customer_permissions", default: {"creditHistory"=>{"clr"=>"true", "snf"=>"true", "amount"=>"true", "parent"=>"true"}, "notifications"=>{"clr"=>"true", "snf"=>"true", "amount"=>"true", "parent"=>"true"}, "accountDetails"=>{"parent"=>"true", "debitedAmount"=>"true", "creditedAmount"=>"true"}, "depositHistory"=>{"parent"=>"true"}}
+    t.boolean "fat", default: false
+    t.boolean "snf", default: false
+    t.boolean "clr", default: false
+    t.string "referral_code"
+    t.string "referred_by_code"
+    t.index ["referral_code"], name: "index_my_dairies_on_referral_code"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -251,6 +299,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_041231) do
     t.datetime "updated_at", null: false
     t.bigint "my_dairy_id"
     t.bigint "sid"
+    t.date "date"
+    t.decimal "stock_quantity", precision: 10, scale: 2, default: "0.0"
+    t.integer "last_low_stock_threshold"
   end
 
   create_table "rechargs", force: :cascade do |t|
